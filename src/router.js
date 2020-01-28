@@ -6,6 +6,7 @@ const router = new KoaRouter();
 async function controllerExecutor(ctx, fn) {
   const data = { ...ctx.request.body, ...ctx.params, ...ctx.query };
   const result = await fn(data);
+  console.log();
   ctx.body = result;
   ctx.status = 200;
 }
