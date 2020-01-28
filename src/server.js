@@ -5,11 +5,19 @@ import router from './router';
 const app = new Koa();
 
 function handleError(err, context) {
-  context.status = err.status || 400;
-  context.body = {
-    message: err.message,
-    extra: err.extra,
-  };
+  if(err.message.isJoi) {
+    context.status = 400;
+    context.body = {
+      message: err.message.details[0].message,
+      extra: err.message.details,
+    }
+  } else {
+    context.status = err.status || 500;
+    context.body = {
+      message: err.message || 'Unhandled error',
+      extra: err.extra,
+    };
+  }
 }
 
 app.use(bodyParser());
