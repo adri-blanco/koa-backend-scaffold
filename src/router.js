@@ -9,7 +9,7 @@ async function controllerExecutor(ctx, fn) {
   ctx.status = 200;
 }
 
-router.get('/rooms', async (ctx, next) => {
+router.get('/rooms', async (ctx) => {
   await controllerExecutor(ctx, RoomController.get);
 });
 

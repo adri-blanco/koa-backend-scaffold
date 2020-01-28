@@ -35,9 +35,6 @@
     }
   },
   "lint-staged": {
-    "*.{js,css,md}": [
-      "prettier --write",
-      "npm run eslint"
-    ]
+    "*.js": ["prettier --write", "./node_modules/.bin/eslint —-fix", "git add"]
   }
 }

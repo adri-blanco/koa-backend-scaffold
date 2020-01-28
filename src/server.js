@@ -1,5 +1,4 @@
 import Koa from 'koa';
-import { ApiError } from './utils/ApiError';
 import router from './router';
 
 const app = new Koa();
