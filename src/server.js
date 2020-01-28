@@ -16,4 +16,5 @@ app.use(bodyParser());
 app.use((context, next) => next().catch((err) => handleError(err, context)));
 app.use(router.routes());
 app.use(router.allowedMethods());
-app.listen(3000);
+
+export default app;
