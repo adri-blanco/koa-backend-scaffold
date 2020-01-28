@@ -1,8 +1,9 @@
 const RoomController = {
-  async get() {
-    return {
-      example: true,
-    };
+  async create(data) {
+    return data;
+  },
+  async get(data) {
+    return data;
   }
 }
 

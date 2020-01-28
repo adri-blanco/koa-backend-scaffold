@@ -4,13 +4,17 @@ import RoomController from './controller/RoomController';
 const router = new KoaRouter();
 
 async function controllerExecutor(ctx, fn) {
-  const result = await fn();
+  const data = { ...ctx.request.body, ...ctx.params, ...ctx.query };
+  const result = await fn(data);
   ctx.body = result;
   ctx.status = 200;
 }
 
-router.get('/rooms', async (ctx) => {
+router.get('/rooms/:id', async (ctx) => {
   await controllerExecutor(ctx, RoomController.get);
 });
+router.post('/rooms', async (ctx) => {
+  await controllerExecutor(ctx, RoomController.create);
+})
 
 export default router;

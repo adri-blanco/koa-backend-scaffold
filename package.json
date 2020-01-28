@@ -11,6 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "koa": "^2.11.0",
+    "koa-bodyparser": "^4.2.1",
     "koa-router": "^8.0.6"
   },
   "devDependencies": {
@@ -35,6 +36,10 @@
     }
   },
   "lint-staged": {
-    "*.js": ["prettier --write", "./node_modules/.bin/eslint —-fix", "git add"]
+    "*.js": [
+      "prettier --write",
+      "./node_modules/.bin/eslint —-fix",
+      "git add"
+    ]
   }
 }
