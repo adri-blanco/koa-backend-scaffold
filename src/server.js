@@ -1,4 +1,5 @@
 import Koa from 'koa';
+import cors from '@koa/cors';
 import bodyParser from 'koa-bodyparser';
 import router from './router';
 
@@ -20,6 +21,7 @@ function handleError(err, context) {
   }
 }
 
+app.use(cors());
 app.use(bodyParser());
 app.use((context, next) => next().catch((err) => handleError(err, context)));
 app.use(router.routes());
